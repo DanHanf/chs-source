@@ -18,7 +18,6 @@ function royalamerican (done) {
         url: $$('.details').first().find('a').attr('href'),
         date: $$('.date').text().trim()
       }
-      console.log(show)
       shows.push(show)
     })
     done(null, shows)
