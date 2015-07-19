@@ -38,4 +38,4 @@ function pourHouse(done) {
   })
 }
 
-module.exports = pourHouse(function(e,r){console.log(r)})
+module.exports = pourHouse
