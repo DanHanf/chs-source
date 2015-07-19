@@ -1,9 +1,13 @@
-###show
- - title
- - date
- - time
- - price
- - age limit
- - venue
- - performers
- - url
+###show spec
+
+ ```json
+{
+  "venue",
+  "title",
+  "url",
+  "date",
+  "price",
+  "age",
+  "details"
+}
+ ```}
