@@ -12,6 +12,6 @@ fs.readdir(__dirname+'/sources', function(err, dirs){
     results.forEach(function(venue){
       shows = shows.concat(venue)
     })
-    console.log(JSON.stringify(shows.length))
+    console.log(JSON.stringify(shows))
   })
 })
