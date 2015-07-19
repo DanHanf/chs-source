@@ -9,6 +9,7 @@ tinRoof = function(done) {
     $('.show_nugget').each(function(i, elem) { 
       var $$ = cheerio.load(elem)
       var show = {
+        name: 'Tin Roof',
         description: $$('meta[itemprop="description"]')[0].attribs.content,
         url: $$('meta[itemprop="url"]')[0].attribs.content,
         date: $$('.shows_date_').text(),

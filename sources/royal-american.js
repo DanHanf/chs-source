@@ -13,6 +13,7 @@ function royalamerican (done) {
       if($$('.with').text().trim()) title += $$('.with').text().trim()
 
       var show = {
+        name: 'The Royal American',
         description: title,
         url: $$('.details').first().find('a').attr('href'),
         date: $$('.date').text().trim()
