@@ -7,6 +7,8 @@ var cheerio = require('cheerio')
       ' AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7'
     }
   }
+  , price = ''
+  , time = ''
   , shows = []
 
 function pourHouse(done) {
@@ -14,16 +16,25 @@ function pourHouse(done) {
     var $ = cheerio.load(body)
     $('.event-info-container').each(function(i, elem) {
       var $$ = cheerio.load(elem)
-      console.log($$('.details').html())
-      console.log('\n\n\n\n\n\n\n\n\n::::::::')
+      $$('tr').each(function(t, el) {
+        var key = $$(el).find('th').text().trim()
+        if(key === 'Cover:') {
+          price = $$(el).find('td').text()
+        }
+        if(key === 'Showtime:') {
+          time = $$(el).find('td').text()
+        }
+      })
       show = {
-        description: $$('.eventtitle').text(),
-        url: $$()
+        description: $$('.eventtitle').text().trim().split('\r').join('').split('\t').join(' '),
+        url: $$('.eventtitle').children().attr('href'),
+        price: price,
+        time: time
       }
+      shows.push(show)
     })
+    done(null, shows)
   })
 }
 
-module.exports = pourHouse(function() {
-
-})
+module.exports = pourHouse
