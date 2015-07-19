@@ -14,14 +14,18 @@ function pourHouse(done) {
     var $ = cheerio.load(body)
     $('.event-info-container').each(function(i, elem) {
       var $$ = cheerio.load(elem)
-
+      
+      $$('.eventinfo').each(function(t, cell) {
+        var $$$ = cheerio.load(cell)
+        console.log($$$('td'))
+        console.log('\n\n\n\n::::::::')
+      })
       show = {
-        description: $$('.eventtitle').text().trim(),
-        url: $$('.eventtitle').children().attr('href')
+        description: $$('.eventtitle').text(),
+        url: $$('eventtitle').children().attr('href')
       }
-      console.log(show)
     })
   })
 }
 
-module.exports = pourHouse
+module.exports = pourHouse()
