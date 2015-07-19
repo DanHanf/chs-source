@@ -28,6 +28,7 @@ function pourHouse(done) {
       show = {
         description: $$('.eventtitle').text().trim().split('\r').join('').split('\t').join(' '),
         url: $$('.eventtitle').children().attr('href'),
+        date: $$('.eventdate').text().trim(),
         price: price,
         time: time
       }
@@ -37,4 +38,4 @@ function pourHouse(done) {
   })
 }
 
-module.exports = pourHouse
+module.exports = pourHouse(function(e,r){console.log(r)})
