@@ -20,6 +20,4 @@ tinRoof = function(done) {
   })
 }
 
-module.exports = tinRoof(function() {
-  
-})
+module.exports = tinRoof
