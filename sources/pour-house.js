@@ -24,4 +24,4 @@ function pourHouse(done) {
   })
 }
 
-module.exports = pourHouse()
+module.exports = pourHouse
