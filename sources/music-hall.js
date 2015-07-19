@@ -10,7 +10,7 @@ function musicfarm (done) {
       var $$ = cheerio.load(elem)
 
       var show = {
-        name: 'Charleston Music Hall',
+        venue: 'Charleston Music Hall',
         description: $$('.event_title').text().trim(),
         url: $$('.event_title').children().attr('href'),
         date: ($$('.month').text().trim() +' '+ $$('.day').text().trim() +' '+ $$('.weekday').text().trim() +' ' + $$('.venue_notes').text().trim()).split('\n').join(' ').split('\r').join(' ')
