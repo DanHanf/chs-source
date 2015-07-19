@@ -6,3 +6,4 @@
  - age limit
  - venue
  - performers
+ - url
