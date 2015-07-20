@@ -10,7 +10,7 @@ function hometeamsi(done) {
       var $$ = cheerio.load(elem)
       var details = $$('h3').text()
       var show = {
-        name: 'Home Team West Ashley',
+        name: "Home Team Sullivan's Island",
         description: details.split(':')[1],
         date: details.split(':')[0],
         price: $$('li .price').html(),
