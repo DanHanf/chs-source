@@ -1,6 +1,10 @@
 ##missing
 - awendaw green
-- windjammer
-~~- home team bbq~~
+- ~~ windjammer~~
+- ~~ home team bbq~~
 - loggerheads
-~~- gaillard~~
+- ~~ gaillard~~
+- Theatre 99
+- Sparrow
+- The Mill
+
