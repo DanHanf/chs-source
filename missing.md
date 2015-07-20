@@ -1,6 +1,6 @@
 ##missing
 - awendaw green
 - windjammer
-- home team bbq
+~~- home team bbq~~
 - loggerheads
-- gaillard
+~~- gaillard~~
