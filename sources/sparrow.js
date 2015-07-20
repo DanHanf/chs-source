@@ -22,4 +22,4 @@ sparrow = function(done) {
   })
 }
 
-module.exports = tinRoof
+module.exports = sparrow
