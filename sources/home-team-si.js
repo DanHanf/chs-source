@@ -1,9 +1,9 @@
 var cheerio = require('cheerio')
   , request = require('request')
-  , url = 'http://hometeambbq.com/music-and-special-events/calendar/category/west-ashley/'
+  , url = 'http://hometeambbq.com/music-and-special-events/calendar/category/sullivans-island/'
   , shows = []
 
-function hometeamwa(done) {
+function hometeamsi(done) {
   request(url, function(err, response, body) {
     var $ = cheerio.load(body)
     $('#eventList').each(function(i, elem) {
@@ -22,4 +22,4 @@ function hometeamwa(done) {
   })
 }
 
-module.exports = hometeamwa
+module.exports = hometeamsi
