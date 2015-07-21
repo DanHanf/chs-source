@@ -12,7 +12,7 @@ function hometeamwa(done) {
       var month = $(elem).parent().parent().attr('id').split('-')[0]
       var day = getDay($(elem).find('h3').text().split(':')[0].trim().split('. ')[1])
       var show = {
-        name: "Home Team Sullivan's Island",
+        name: "Home Team West Ashley",
         title: $(elem).find('h3').text().split(':')[1].trim(),
         date: year + '-' + month + '-' + day,
         price: $(elem).find('h4.price').text(),
@@ -25,31 +25,11 @@ function hometeamwa(done) {
   })
 }
 
-function getMonth(str) {
-  var months = [
-      'Jan.',
-      'Feb.',
-      'Mar.',
-      'Apr.',
-      'May.',
-      'Jun.',
-      'Jul.',
-      'Aug.',
-      'Sep.',
-      'Oct.',
-      'Nov.',
-      'Dec.'
-    ]
-  var month = (months.indexOf(str) + 1).toString()
-  //console.log(month)
-  if(month.length === 1) month = '0' + month
-  return month
-}
-
 function getDay(str) {
   var day = str.toString()
   if(day.length === 1) day = '0' + day
   return day
 }
+
 
 module.exports = hometeamwa(function(){})
