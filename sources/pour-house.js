@@ -54,8 +54,6 @@ function pourHouse(done) {
   })
 }
 
-pourHouse(function(){})
-
 module.exports = pourHouse
 
 function normalizeDate(date) {
