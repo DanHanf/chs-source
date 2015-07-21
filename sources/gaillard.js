@@ -8,16 +8,27 @@ gaillard = function(done) {
     var $ = cheerio.load(body)
     $('.event-promo').each(function(i, elem) {
       var $$ = cheerio.load(elem)
+      var date = $$('div.date').text().trim().split('Multiple Dates').join('').split('.').join('/') 
+      date = normalizeDate(date)
       var show = {
         venue: 'Gaillard Center',
         title: $$('div.name').text().trim(),
         url: 'http://www.gaillardcenter.com'+$$('div.overlay').children().attr('href'),
-        date: $$('div.date').text().trim().split('Multiple Dates').join('').split('.').join('/')
+        date: date
       }
       shows.push(show)
     })
     done(null, shows)
   })
+}
+
+normalizeDate = function(date) {
+  date = date.split('/')
+  var month = date.shift()
+  var day = date.shift()
+  date.push(month)
+  date.push(day)
+  return date.join('-')
 }
 
 module.exports = gaillard
