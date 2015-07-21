@@ -11,7 +11,7 @@ function musicfarm (done) {
 
       var show = {
         venue: 'Music Farm',
-        description: $$('.headliners').text().trim(),
+        title: $$('.headliners').text().trim(),
         url: 'http://www.musicfarm.com'+$$('.headliners').children().attr('href'),
         date: $$('.dates').text().trim() + ' ' + $$('.times').text().trim(),
         age: $$('.age-restriction').text().trim()

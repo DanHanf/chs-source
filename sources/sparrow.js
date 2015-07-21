@@ -10,7 +10,7 @@ sparrow = function(done) {
       var $$ = cheerio.load(elem)
       var show = {
         venue: 'The Sparrow',
-        description: $$('meta[itemprop="description"]')[0].attribs.content.split('at')[0].split('At')[0].trim(),
+        title: $$('meta[itemprop="description"]')[0].attribs.content.split('at')[0].split('At')[0].trim(),
         url: $$('meta[itemprop="url"]')[0].attribs.content,
         date: $$('.details_time').text().split('@')[0].trim(),
         time: $$('.details_time').text().split('@')[1].trim(),

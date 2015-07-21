@@ -10,7 +10,7 @@ tinRoof = function(done) {
       var $$ = cheerio.load(elem)
       var show = {
         venue: 'Tin Roof',
-        description: $$('meta[itemprop="description"]')[0].attribs.content,
+        title: $$('meta[itemprop="description"]')[0].attribs.content,
         url: $$('meta[itemprop="url"]')[0].attribs.content,
         date: $$('.shows_date_').text(),
         age: $$('.shows_disclaimer_').text().trim()

@@ -27,7 +27,7 @@ function pourHouse(done) {
       })
       show = {
         venue: 'Pour House',
-        description: $$('.eventtitle').text().trim().split('\r').join('').split('\t').join('').split('\n').join(''),
+        title: $$('.eventtitle').text().trim().split('\r').join('').split('\t').join('').split('\n').join(''),
         url: $$('.eventtitle').children().attr('href'),
         date: $$('.eventdate').text().trim(),
         price: price,

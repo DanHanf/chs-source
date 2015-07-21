@@ -10,7 +10,7 @@ gaillard = function(done) {
       var $$ = cheerio.load(elem)
       var show = {
         venue: 'Gaillard Center',
-        description: $$('div.name').text().trim(),
+        title: $$('div.name').text().trim(),
         url: 'http://www.gaillardcenter.com'+$$('div.overlay').children().attr('href'),
         date: $$('div.date').text().trim().split('Multiple Dates').join('').split('.').join('/')
       }

@@ -10,7 +10,7 @@ windjammer = function(done) {
       var $$ = cheerio.load(elem)
       var show = {
         venue: 'The Windjammer',
-        description: $$('.event-arc-title').children().text(),
+        title: $$('.event-arc-title').children().text(),
         url: $$('.event-arc-title').children().attr('href'),
         time: $$('.event-arc-time').text().split('\r').join('').split('\n').join('').trim(),
         price: $$('.event-cancel-out').children().text(),

@@ -10,7 +10,7 @@ theatre99 = function(done) {
       var $$ = cheerio.load(elem)
       var show = {
         venue: 'Theatre 99',
-        description: $$('div.calshowtitle').first().text().trim(),
+        title: $$('div.calshowtitle').first().text().trim(),
         url: 'http://www.theatre99.com/'+$$('div.calshowtitle').children().attr('href'),
         date: $$('div.caldate').first().text().trim() +' '+ $$('div.showdetails').text().trim().split(' - ')[0],
         price: $$('div.showdetails').first().text().trim().split(' - ')[1]

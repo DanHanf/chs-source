@@ -11,7 +11,7 @@ function hometeamwa(done) {
       var details = $$('h3').text()
       var show = {
         name: 'Home Team West Ashley',
-        description: details.split(':')[1],
+        title: details.split(':')[1],
         date: details.split(':')[0],
         price: $$('li .price').html(),
         time: $$('li h5 span').html()

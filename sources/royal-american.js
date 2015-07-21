@@ -14,7 +14,7 @@ function royalamerican (done) {
 
       var show = {
         venue: 'The Royal American',
-        description: title,
+        title: title,
         url: $$('.details').first().find('a').attr('href'),
         date: $$('.date').text().trim()
       }
