@@ -18,7 +18,7 @@ function hometeamsi(done) {
         price: $(elem).find('h4.price').text(),
         details: $(elem).find('h5 span').text()
       }
-      console.log(show)
+
       shows.push(show)
     })
     done(null, shows)
@@ -43,4 +43,4 @@ function getMonth(str) {
   return months.indexOf(str) + 1
 }
 
-module.exports = hometeamsi(function(){})
+module.exports = hometeamsi
