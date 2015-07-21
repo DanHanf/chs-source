@@ -9,7 +9,20 @@ var cheerio = require('cheerio')
   }
   , price = ''
   , time = ''
+  , date = ''
   , shows = []
+  , months = ['January', 
+              'February', 
+              'March', 
+              'April', 
+              'May', 
+              'June', 
+              'July', 
+              'August', 
+              'September', 
+              'October', 
+              'November', 
+              'December']
 
 function pourHouse(done) {
   request(options, function(err, response, body) {
@@ -24,12 +37,14 @@ function pourHouse(done) {
         if(key === 'Showtime:') {
           time = $$(el).find('td').text()
         }
+        date = $$('.eventdate').text().trim()
+        date = normalizeDate(date)
       })
       show = {
         venue: 'Pour House',
         title: $$('.eventtitle').text().trim().split('\r').join('').split('\t').join('').split('\n').join(''),
         url: $$('.eventtitle').children().attr('href'),
-        date: $$('.eventdate').text().trim(),
+        date: date,
         price: price,
         time: time
       }
@@ -39,4 +54,19 @@ function pourHouse(done) {
   })
 }
 
+pourHouse(function(){})
+
 module.exports = pourHouse
+
+function normalizeDate(date) {
+  var newDate = []
+  date = date.split(' ')
+  var month = (months.indexOf(date[1])+1).toString()
+  if(month.length <2) month = '0'+month
+  var day = date[2]
+  var year = date[3]
+  newDate.push(year)
+  newDate.push(month)
+  newDate.push(day)
+  return newDate.join('-')
+}
