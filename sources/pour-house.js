@@ -66,5 +66,5 @@ function normalizeDate(date) {
   newDate.push(year)
   newDate.push(month)
   newDate.push(day)
-  return newDate.join('-')
+  return newDate.join('-').split(',').join('')
 }
