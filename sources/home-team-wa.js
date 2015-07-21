@@ -18,7 +18,6 @@ function hometeamwa(done) {
         price: $(elem).find('h4.price').text(),
         details: $(elem).find('h5 span').text()
       }
-      console.log(show)
       shows.push(show)
     })
     done(null, shows)
@@ -32,4 +31,4 @@ function getDay(str) {
 }
 
 
-module.exports = hometeamwa(function(){})
+module.exports = hometeamwa

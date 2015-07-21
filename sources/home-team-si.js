@@ -18,7 +18,6 @@ function hometeamsi(done) {
         price: $(elem).find('h4.price').text(),
         details: $(elem).find('h5 span').text()
       }
-      console.log(show)
       shows.push(show)
     })
     done(null, shows)
@@ -31,4 +30,4 @@ function getDay(str) {
   return day
 }
 
-module.exports = hometeamsi(function(){})
+module.exports = hometeamsi
