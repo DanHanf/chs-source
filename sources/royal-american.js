@@ -45,7 +45,7 @@ function normalizeDate(date, year) {
   var day = date.pop()
   if(day.length < 2) day = '0'+day
   var month = date.pop()
-  var month = (months.indexOf(month)+1).toString()
+  month = (months.indexOf(month)+1).toString()
   if(month.length < 2) month = '0'+month
     year = year.split('_')[1]
   newDate.push(year)
