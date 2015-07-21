@@ -17,7 +17,6 @@ function musicfarm (done) {
           getDay($(elem).find('.day').text().trim()),
         details: ($(elem).find('.venue_notes').text().trim()).split('\n').join(' ').split('\r').join(' ')
       }
-      console.log(show)
       shows.push(show)
     })
     done(null, shows)
@@ -50,4 +49,4 @@ function getDay(str) {
   return day
 }
 
-module.exports = musicfarm(function(){})
+module.exports = musicfarm
