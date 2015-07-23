@@ -3,9 +3,9 @@ var queue = require('queue-async')
 var moment = require('moment')
 var db = levelup('./db')
 
-exports.getShows = function() {
+exports.getShows = function(done) {
   getShows(function(result) {
-    console.log(result)
+    done(result)
   })
 }
 

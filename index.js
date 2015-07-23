@@ -13,7 +13,9 @@ fs.readdir(__dirname+'/sources', function(err, dirs){
     results.forEach(function(venue){
       shows = shows.concat(venue)
     })
-    manageDB.getShows(shows)
+    manageDB.getShows(function(thisWeek) {
+      console.log(thisWeek)
+    })
     //console.log(JSON.stringify(shows))
   })
 })
