@@ -1,7 +1,6 @@
 var fs = require('fs')
 var queue = require('queue-async')
-var getShows = require('./getShows.js')
-
+var dbManagement = require('./dbManagement.js')
 
 fs.readdir(__dirname+'/sources', function(err, dirs){
   var q = queue(5)
@@ -14,7 +13,7 @@ fs.readdir(__dirname+'/sources', function(err, dirs){
     results.forEach(function(venue){
       shows = shows.concat(venue)
     })
-    getShows(shows)
+    dbManagement.getShows(shows)
     //console.log(JSON.stringify(shows))
   })
 })

@@ -1,8 +1,11 @@
 var levelup = require('levelup')
-var db = levelup('./db')
 var queue = require('queue-async')
+var db = levelup('./db')
 
 module.exports = function(shows) {
+  if(db.isOpen()) {
+    db.close(function(){})
+  }
   addShows(shows)
 }
 
@@ -16,6 +19,7 @@ function addShows(shows) {
     })
   })
   q.awaitAll(function(){
+    db.close(function(){})
     console.log('done')
   })
 }
