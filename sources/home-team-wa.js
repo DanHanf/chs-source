@@ -12,7 +12,7 @@ function hometeamwa(done) {
       var month = $(elem).parent().parent().attr('id').split('-')[0]
       var day = getDay($(elem).find('h3').text().split(':')[0].trim().split('. ')[1])
       var show = {
-        name: "Home Team West Ashley",
+        venue: "Home Team West Ashley",
         title: $(elem).find('h3').text().split(':')[1].trim(),
         date: year + '-' + month + '-' + day,
         price: $(elem).find('h4.price').text(),

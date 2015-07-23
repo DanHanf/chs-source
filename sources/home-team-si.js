@@ -1,6 +1,6 @@
 var cheerio = require('cheerio')
   , request = require('request')
-  , url = 'http://hometeambbq.com/music-and-special-events/calendar/category/west-ashley/'
+  , url = 'http://hometeambbq.com/music-and-special-events/calendar/category/sullivans-island/'
   , shows = []
 
 function hometeamsi(done) {
@@ -12,7 +12,7 @@ function hometeamsi(done) {
       var month = $(elem).parent().parent().attr('id').split('-')[0]
       var day = getDay($(elem).find('h3').text().split(':')[0].trim().split('. ')[1])
       var show = {
-        name: "Home Team Sullivan's Island",
+        venue: "Home Team Sullivan's Island",
         title: $(elem).find('h3').text().split(':')[1].trim(),
         date: year + '-' + month + '-' + day,
         price: $(elem).find('h4.price').text(),
