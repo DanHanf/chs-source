@@ -16,12 +16,14 @@ exports.addShows = function(shows) {
 }
 
 function getShows(done) {
+  var showArray = []
   var date = moment()
   var today = date.toISOString().slice(0,10)
   var nextWeek = date.add(7, 'days').toISOString().slice(0,10)
   db.createReadStream({gte: today, lt: nextWeek})
   .on('data', function(data) {
-    done(data.value)
+    showArray.push(data.value)
+    done(showArray)
   })
   .on('error', function(err) {
     console.log('err::::'+err)
