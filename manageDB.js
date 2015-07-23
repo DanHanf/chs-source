@@ -21,7 +21,7 @@ function getShows(done) {
   var nextWeek = date.add(7, 'days').toISOString().slice(0,10)
   db.createReadStream({gte: today, lt: nextWeek})
   .on('data', function(data) {
-    done(data.key, '=', data.value)
+    done(data.value)
   })
   .on('error', function(err) {
     console.log('err::::'+err)
