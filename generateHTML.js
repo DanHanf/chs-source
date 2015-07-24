@@ -7,14 +7,7 @@ module.exports = function(shows) {
   var tonightList = tonightHTML(tonight)
 }
 
-/*var html = "<li><h2>"+show.venue+"</h2>"
-    if(show.url) {html+="<h4><a href='"+show.url+"'>"+show.title+"</a></h4>"}
-    else {html+= "<h4>"+show.title+"</h4>"}
-    if(show.time) {html += "<span>Time: "+show.time+"</span><br />"}
-    if(show.price) {html += "<span>Price: "+show.price+"</span><br />"}
-    if(show.details) {html += "<span>Details: "+show.details+"</span><br />"}*/
-
-function sortShows(shows, cb) {
+function sortShows(shows) {
   var today = moment().toISOString().slice(0,10)
   shows.forEach(function(show) {
     show = JSON.parse(show)
