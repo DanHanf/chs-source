@@ -15,7 +15,9 @@ fs.readdir(__dirname+'/sources', function(err, dirs){
       shows = shows.concat(venue)
     })
     show.getShows(function(result) {
-      generateHTML(result)
+      generateHTML(result, function(tonight, thisWeek) {
+        // returns html for tonight and array of html for each venue this week
+      })
     })
     //console.log(JSON.stringify(shows))
   })
