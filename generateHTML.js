@@ -5,7 +5,6 @@ var gaillard = [], hometeamsi = [], hometeamwa = [], musicfarm = [], musichall =
 module.exports = function(shows) {
   sortShows(shows)
   var tonightList = tonightHTML(tonight)
-  console.log(tonightList)
 }
 
 /*var html = "<li><h2>"+show.venue+"</h2>"
