@@ -1,6 +1,7 @@
 var fs = require('fs')
 var queue = require('queue-async')
-var manageDB = require('./manageDB.js')
+var show = require('./show.js')
+var generateHTML = require('./generateHTML.js')
 
 fs.readdir(__dirname+'/sources', function(err, dirs){
   var q = queue(5)
@@ -13,8 +14,8 @@ fs.readdir(__dirname+'/sources', function(err, dirs){
     results.forEach(function(venue){
       shows = shows.concat(venue)
     })
-    manageDB.getShows(function(thisWeek) {
-      console.log(thisWeek)
+    show.getShows(function(result) {
+      generateHTML(result)
     })
     //console.log(JSON.stringify(shows))
   })
