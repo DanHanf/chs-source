@@ -20,7 +20,7 @@ module.exports = function(shows, done) {
 }
 
 function sortShows(shows) {
-  var today = moment().toISOString().slice(0,10)
+  var today = moment().format('YYYY-MM-DD')
   shows.forEach(function(show) {
     show = JSON.parse(show)
     var venue = show.venue
