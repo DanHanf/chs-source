@@ -16,6 +16,7 @@ fs.readdir(__dirname+'/sources', function(err, dirs){
     })
     show.getShows(function(result) {
       generateHTML(result, function(tonight, thisWeek) {
+        console.log(tonight, thisWeek.join(' '))
         // returns html for tonight and array of html for each venue this week
       })
     })
