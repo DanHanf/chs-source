@@ -42,6 +42,6 @@ function addShows(shows, done) {
     })
   })
   q.awaitAll(function(){
-    console.log('done writing')
+    console.log('putting')
   })
 }
