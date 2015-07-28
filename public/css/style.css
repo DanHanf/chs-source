@@ -1,0 +1,79 @@
+html {
+  font-family: 'Quicksand', monospace;
+  font-size: 12px;
+}
+body {
+  color: #000;
+  background-color:#FFF;
+  margin-left:25%;
+  margin-right:25%;
+}
+ul {
+  list-style:none;
+}
+h1 {
+  text-align:center;
+}
+h2 {
+  margin-top:5px;
+  margin-bottom:5px;
+}
+h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+a {
+  color:#FF0000;
+  text-decoration: none
+}
+a:hover {
+  color:#FFF;
+  background-color: #FF0000;
+}
+/*
+.red {
+  color:#FF0000;
+  background-color:#551a8b;
+}
+.orange {
+  color:#FF7D00;
+  background-color:#4b0082;
+}
+.yellow {
+  color:#FFFF00;
+  background-color:#0000FF;
+}
+.green {
+  color:#000;
+  background-color:#00FF00;
+}
+.blue {
+  color:#0000FF;
+  background-color:#FFFF00;
+}
+.indigo {
+  color:#4b0082;
+  background-color:#FF7D00;
+}
+.violet {
+  color:#551a8b;
+  background-color:#FF0000;
+}*/
+.venueName {
+  background-color:#FFF;
+  color:#000;
+  width:100%;
+  text-decoration: underline;
+  letter-spacing: .15em;
+}
+.showItem {
+
+}
+.spacer {
+  display: block;
+  margin-top:2px;
+  margin-bottom:2px;
+  background-color:#000;
+  height:1px;
+  width:100%;
+}

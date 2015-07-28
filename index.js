@@ -27,7 +27,7 @@ new cronJob('*/30 * * * *', function(){
 
 show.getShows(function(result) {
   generateHTML(result, function(tonight, thisWeek) {
-    //console.log(tonight, thisWeek.join(' '))
+    console.log(tonight, thisWeek.join(' '))
     // returns html for tonight and array of html for each venue this week
   })
 })

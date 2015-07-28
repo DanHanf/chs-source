@@ -40,30 +40,36 @@ function sortShows(shows) {
 }
 
 function tonightHTML(shows) {
-  var html = "<h1>TONIGHT</h1><ul>"
+  var html = "<h1><span class='red'>T</span><span class='orange'>O</span><span class='yellow'>N</span>"
+  html += "<span class='green'>I</span><span class='blue'>G</span><span class='indigo'>H</span><span class='violet'>T</span></h1>"
+  html += "<ul>"
   shows.forEach(function(show) {
-    html += "<li><h2>"+show.venue+"</h2>"
-    if(show.url) {html+="<h4><a href='"+show.url+"'>"+show.title+"</a></h4>"}
-    else {html+= "<h4>"+show.title+"</h4>"}
+    html += "<li><div class='venueName'><h2>"+show.venue+"</h2></div>"
+    if(show.url) {html+="<h3><a href='"+show.url+"'>"+show.title+"</a></h3>"}
+    else {html+= "<h3>"+show.title+"</h3>"}
     if(show.time) {html += "<span>Time: "+show.time+"</span><br />"}
     if(show.price) {html += "<span>Price: "+show.price+"</span><br />"}
     if(show.details) {html += "<span>Details: "+show.details+"</span><br />"}
-    html += "</li>"
+    html += "</div></li>"
   })
   html += "</ul>"
+  html += "<h1><span class='red'>T</span><span class='orange'>H</span><span class='yellow'>I</span>"
+  html += "<span class='green'>S</span> <span class='blue'>W</span><span class='indigo'>E</span>"
+  html += "<span class='violet'>E</span><span class='red'>K</span></h1>"
   return html
 }
 
 function generateHTML(shows, venue) {
-  var html = "<h2>"+venue+"</h2> <ul>"
+  var html = "<div class='venueName'><h2>"+venue+"</h2></div> <ul>"
   shows.forEach(function(show) {
-    if(show.url) {html+="<h4><a href='"+show.url+"'>"+show.title+"</a></h4>"}
-    else {html+= "<h4>"+show.title+"</h4>"}
+    html += "<div class='showItem'><li>"
+    if(show.url) {html+="<h3><a href='"+show.url+"'>"+show.title+"</a></h3>"}
+    else {html+= "<h3>"+show.title+"</h3>"}
     html += "<span>Date: "+show.date+"</span><br />"
     if(show.time) {html += "<span>Time: "+show.time+"</span><br />"}
     if(show.price) {html += "<span>Price: "+show.price+"</span><br />"}
     if(show.details) {html += "<span>Details: "+show.details+"</span><br />"}
-    html += "</li>"
+    html += "</li></div><span class='spacer'> </span>"
   })
   html += "</ul>"
   return html
