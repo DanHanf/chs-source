@@ -18,7 +18,6 @@ new cronJob('*/30 * * * *', function(){
       results.forEach(function(venue){
         shows = shows.concat(venue)
       })
-      console.log(shows)
       show.addShows(shows)
     })
   })

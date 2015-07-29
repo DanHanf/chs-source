@@ -13,6 +13,9 @@ ul {
 }
 h1 {
   text-align:center;
+  background-color: #000;
+  color:#FFF;
+  padding:15px;
 }
 h2 {
   margin-top:5px;
@@ -30,8 +33,15 @@ a:hover {
   color:#FFF;
   background-color: #FF0000;
 }
-/*
-.red {
+#nav {
+  text-align: center;
+}
+#about {
+  margin-top:25%;
+  text-align:center;
+  border:1px dashed black;
+}
+/*.red {
   color:#FF0000;
   background-color:#551a8b;
 }

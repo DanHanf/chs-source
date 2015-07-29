@@ -40,12 +40,13 @@ function sortShows(shows) {
 }
 
 function tonightHTML(shows) {
-  var html = "<h1><span class='red'>T</span><span class='orange'>O</span><span class='yellow'>N</span>"
+  var html = "<div id='nav'><a href='./about.html'>about</a></div>"
+  html += "<h1><span class='red'>T</span><span class='orange'>O</span><span class='yellow'>N</span>"
   html += "<span class='green'>I</span><span class='blue'>G</span><span class='indigo'>H</span><span class='violet'>T</span></h1>"
   html += "<ul>"
   shows.forEach(function(show) {
     html += "<li><div class='venueName'><h2>"+show.venue+"</h2></div>"
-    if(show.url) {html+="<h3><a href='"+show.url+"'>"+show.title+"</a></h3>"}
+    if(show.url) {html+="<h3><a target='_blank' href='"+show.url+"'>"+show.title+"</a></h3>"}
     else {html+= "<h3>"+show.title+"</h3>"}
     if(show.time) {html += "<span>Time: "+show.time+"</span><br />"}
     if(show.price) {html += "<span>Price: "+show.price+"</span><br />"}
@@ -63,7 +64,7 @@ function generateHTML(shows, venue) {
   var html = "<div class='venueName'><h2>"+venue+"</h2></div> <ul>"
   shows.forEach(function(show) {
     html += "<div class='showItem'><li>"
-    if(show.url) {html+="<h3><a href='"+show.url+"'>"+show.title+"</a></h3>"}
+    if(show.url) {html+="<h3><a target='_blank' href='"+show.url+"'>"+show.title+"</a></h3>"}
     else {html+= "<h3>"+show.title+"</h3>"}
     html += "<span>Date: "+show.date+"</span><br />"
     if(show.time) {html += "<span>Time: "+show.time+"</span><br />"}
