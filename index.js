@@ -3,6 +3,7 @@ var queue = require('queue-async')
 var cronJob = require('cron').CronJob
 var show = require('./show.js')
 var generateHTML = require('./generateHTML.js')
+var makePage = require('./makePage.js')
 
 // Scrapers run / DB updated every 30 minutes
 new cronJob('*/30 * * * *', function(){
@@ -26,7 +27,7 @@ new cronJob('*/30 * * * *', function(){
 
 show.getShows(function(result) {
   generateHTML(result, function(tonight, thisWeek) {
-    console.log(tonight, thisWeek.join(' '))
     // returns html for tonight and array of html for each venue this week
+    makePage(tonight, thisWeek.join(' '))
   })
 })
