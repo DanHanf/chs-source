@@ -50,7 +50,7 @@ function tonightHTML(shows) {
   html += "<span class='green'>I</span><span class='blue'>G</span><span class='indigo'>H</span><span class='violet'>T</span></h1>"
   html += "<ul>"
   shows.forEach(function(show) {
-    html += "<li><div class='venueName'><h2>"+show.venue+"</h2></div>"
+    html += "<li><div class='venueName'><h2><a href='"+show.venueUrl+"' target='_blank'>"+show.venue+"</a></h2></div>"
     if(show.url) {html+="<h3><a target='_blank' href='"+show.url+"'>"+show.title+"</a></h3>"}
     else {html+= "<h3>"+show.title+"</h3>"}
     if(show.time) {html += "<span>Time: "+show.time+"</span><br />"}
@@ -66,7 +66,11 @@ function tonightHTML(shows) {
 }
 
 function generateHTML(shows, venue) {
-  var html = "<div class='venueName'><h2>"+venue+"</h2></div> <ul>"
+  if(shows.length > 1) {
+    var venueUrl = shows[0].venueUrl
+    var html = "<div class='venueName'><h2><a href='"+venueUrl+"' target='_blank'>"+venue+"</a></h2></div> <ul>"
+  }
+  else var html = "<div class='venueName'><h2>"+venue+"</h2></div> <ul>"
   shows.forEach(function(show) {
     html += "<div class='showItem'><li>"
     if(show.url) {html+="<h3><a target='_blank' href='"+show.url+"'>"+show.title+"</a></h3>"}

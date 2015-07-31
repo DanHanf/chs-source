@@ -13,6 +13,7 @@ function hometeamwa(done) {
       var day = getDay($(elem).find('h3').text().split(':')[0].trim().split('. ')[1])
       var show = {
         venue: "Home Team West Ashley",
+        venueUrl: 'http://hometeambbq.com/about/west-ashley/',
         title: $(elem).find('h3').text().split(':')[1].trim(),
         date: year + '-' + month + '-' + day,
         price: $(elem).find('h4.price').text(),

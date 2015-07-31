@@ -36,10 +36,12 @@ theatre99 = function(done) {
             date = normalizeDate(date.trim(), year)
             var show = {
               venue: 'Theatre 99',
+              venueUrl: 'http://theatre99.com/',
               title: $$$$('div.calshowtitle').first().text().trim(),
               url: 'http://www.theatre99.com/'+$$$$('div.calshowtitle').children().attr('href'),
               date: date,
-              price: $$$$('div.showdetails').first().text().trim().split(' - ')[1]
+              price: $$$$('div.showdetails').first().text().trim().split(' - ')[1],
+              time: $$$$('div.showdetails').first().text().trim().split(' - ')[0]
             }
             if(show.title) shows.push(show)
           })

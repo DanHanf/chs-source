@@ -9,6 +9,7 @@ function musicfarm (done) {
     $('.event_wrap').each(function(i, elem) {
       var show = {
         venue: 'Charleston Music Hall',
+        venueUrl: 'http://charlestonmusichall.com/',
         title: $(elem).find('.event_title').text().trim(),
         url: $(elem).find('.event_title').children().attr('href'),
         date: $(elem).find('img .photo').attr('href'),

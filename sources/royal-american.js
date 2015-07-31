@@ -27,6 +27,7 @@ function royalamerican (done) {
       date = normalizeDate(date, year)
       var show = {
         venue: 'The Royal American',
+        venueUrl: 'http://theroyalamerican.com/',
         title: title,
         url: $$('.details').first().find('a').attr('href'),
         date: date

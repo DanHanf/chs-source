@@ -25,6 +25,7 @@ tinroof = function(done) {
       date = normalizeDate(date, year)
       var show = {
         venue: 'Tin Roof',
+        venueUrl: 'http://www.charlestontinroof.com/',
         title: $$('meta[itemprop="description"]')[0].attribs.content,
         url: $$('meta[itemprop="url"]')[0].attribs.content,
         date: date,
@@ -41,8 +42,10 @@ module.exports = tinroof
 
 function normalizeDate(date, year) {
   var newDate = []
+  var day 
   var month = date.split(' ')[1]
-  var day = date.split(' ')[2]
+  if(date.split(' ')[2] != '') day = date.split(' ')[2]
+  else day = date.split(' ')[3]
   month = (months.indexOf(month)+1).toString()
   if(month.length<2) month = '0'+month
   if(day.length<2) day = '0'+day
