@@ -12,6 +12,7 @@ function musicfarm (done) {
       date = normalizeDate(date)
       var show = {
         venue: 'Music Farm',
+        venueUrl: 'http://www.musicfarm.com/venues/music-farm-charleston/upcoming-shows/',
         title: $$('.headliners').text().trim(),
         url: 'http://www.musicfarm.com'+$$('.headliners').children().attr('href'),
         date: date,

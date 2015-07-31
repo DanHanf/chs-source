@@ -1,6 +1,5 @@
 var fs = require('fs')
 var queue = require('queue-async')
-var cronJob = require('cron').CronJob
 var childProcess = require('child_process')
 var show = require('./show.js')
 var generateHTML = require('./generateHTML.js')
@@ -8,7 +7,7 @@ var makePage = require('./makePage.js')
 
 // Scrapers run / DB updated every 30 minutes
 //new cronJob('*/30 * * * *', function(){
-/*  fs.readdir(__dirname+'/sources', function(err, dirs){
+fs.readdir(__dirname+'/sources', function(err, dirs){
     var q = queue(5)
     dirs.forEach(function(dir){
       var fn = require(__dirname + '/sources/' + dir)
@@ -21,9 +20,7 @@ var makePage = require('./makePage.js')
       })
       show.addShows(shows)
     })
-  })
-}, function(){console.log('written')}, true)*/
-
+})
 
 show.getShows(function(result) {
   generateHTML(result, function(tonight, thisWeek) {

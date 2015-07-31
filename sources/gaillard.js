@@ -12,6 +12,7 @@ gaillard = function(done) {
       date = normalizeDate(date)
       var show = {
         venue: 'Gaillard Center',
+        venueUrl: 'http://www.gaillardcenter.com/',
         title: $$('div.name').text().trim(),
         url: 'http://www.gaillardcenter.com'+$$('div.overlay').children().attr('href'),
         date: date

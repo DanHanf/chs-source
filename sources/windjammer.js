@@ -30,6 +30,7 @@ windjammer = function(done) {
         date = normalizeDate(date, year)
         var show = {
           venue: 'The Windjammer',
+          venueUrl: 'http://www.the-windjammer.com/wp/',
           title: $$('.event-arc-title').children().text(),
           url: eventUrl,
           time: $$('.event-arc-time').text().split('\r').join('').split('\n').join('').trim(),

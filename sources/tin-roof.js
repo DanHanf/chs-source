@@ -25,6 +25,7 @@ tinroof = function(done) {
       date = normalizeDate(date, year)
       var show = {
         venue: 'Tin Roof',
+        venueUrl: 'http://www.charlestontinroof.com/',
         title: $$('meta[itemprop="description"]')[0].attribs.content,
         url: $$('meta[itemprop="url"]')[0].attribs.content,
         date: date,

@@ -26,6 +26,7 @@ sparrow = function(done) {
       date = normalizeDate(date)
       var show = {
         venue: 'The Sparrow',
+        venueUrl: 'https://www.facebook.com/thesparrowparkcircle',
         title: $$('meta[itemprop="description"]')[0].attribs.content.split('at')[0].split('At')[0].trim(),
         url: $$('meta[itemprop="url"]')[0].attribs.content,
         date: date,

@@ -36,6 +36,7 @@ theatre99 = function(done) {
             date = normalizeDate(date.trim(), year)
             var show = {
               venue: 'Theatre 99',
+              venueUrl: 'http://theatre99.com/',
               title: $$$$('div.calshowtitle').first().text().trim(),
               url: 'http://www.theatre99.com/'+$$$$('div.calshowtitle').children().attr('href'),
               date: date,
