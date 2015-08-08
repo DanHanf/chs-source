@@ -20,9 +20,12 @@ function musicfarm (done) {
       }
       shows.push(show)
     })
+    console.log(shows)
     done(null, shows)
   })
 }
+
+musicfarm(function(){})
 
 function normalizeDate(date) {
   date = date.split(',').join('')

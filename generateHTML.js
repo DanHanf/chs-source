@@ -66,7 +66,7 @@ function tonightHTML(shows) {
 }
 
 function generateHTML(shows, venue) {
-  if(shows.length > 1) {
+  if(shows.length > 0) {
     var venueUrl = shows[0].venueUrl
     var html = "<div class='venueName'><h2><a href='"+venueUrl+"' target='_blank'>"+venue+"</a></h2></div> <ul>"
   }
@@ -79,6 +79,7 @@ function generateHTML(shows, venue) {
     if(show.time) {html += "<span>Time: "+show.time+"</span><br />"}
     if(show.price) {html += "<span>Price: "+show.price+"</span><br />"}
     if(show.details) {html += "<span>Details: "+show.details+"</span><br />"}
+    if(show.age) {html += "<span>Age: "+show.age++"</span><br />"}
     html += "</li></div><span class='spacer'> </span>"
   })
   html += "</ul>"
