@@ -16,6 +16,7 @@ function musicfarm (done) {
         title: $$('.headliners').text().trim(),
         url: 'http://www.musicfarm.com'+$$('.headliners').children().attr('href'),
         date: date,
+        price: $$('.price-range').text().trim(),
         age: $$('.age-restriction').text().trim()
       }
       shows.push(show)
