@@ -26,7 +26,8 @@ show.getShows(function(result) {
   generateHTML(result, function(tonight, thisWeek) {
     // returns html for tonight and array of html for each venue this week
     makePage(tonight, thisWeek.join(' '), function() {
-      childProcess.execSync('git add .; git commit -m "refresh"; git push origin gh-pages;')
+      //childProcess.execSync('git add .; git commit -m "refresh"; git push origin gh-pages;')
+console.log('done')
     })
   })
 })
