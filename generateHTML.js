@@ -1,4 +1,5 @@
 var moment = require("moment")
+var show = require('./show.js')
 var gaillard = [], hometeamsi = [], hometeamwa = [], musicfarm = [], musichall = [], pourhouse = [], royalamerican = []
   , sparrow = [], theatre99 = [], tinroof = [], windjammer = [], tonight = [], thisWeek = [], woolfe =[]
 
@@ -22,7 +23,7 @@ module.exports = function(shows, done) {
 }
 
 function sortShows(shows) {
-  var today = moment().format('YYYY-MM-DD')
+  var today = show.referenceDate().format('YYYY-MM-DD')
   shows.forEach(function(show) {
     show = JSON.parse(show)
     var venue = show.venue
@@ -95,3 +96,4 @@ function generateHTML(shows, venue) {
   html += "</ul>"
   return html
 }
+
