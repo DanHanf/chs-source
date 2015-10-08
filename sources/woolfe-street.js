@@ -3,7 +3,6 @@
  */
 var cheerio = require('cheerio')
     , request = require('request')
-    , sprintf = require("sprintf-js").sprintf
     , url = 'http://woolfestreetplayhouse.tix.com/Schedule.aspx?OrgNum=1687&Tooltip=N'
     , eventUrlPrefix = 'http://woolfestreetplayhouse.tix.com/'
     , shows = [];
@@ -34,7 +33,6 @@ woolfe = function(done) {
                 date: date,
                 time: time
             }
-            //console.log( show )
             shows.push(show)
         } )
 
@@ -44,14 +42,17 @@ woolfe = function(done) {
 
 function parseDate( date )
 {
+    var newDate = []
     var mdyString = date.split( /\s/ )[1];
     var tokens = mdyString.split( /\// );
 
     if( tokens.length !== 3 ) return "";
-
-    var result = sprintf( "%s-%02d-%02d",  tokens[2], tokens[0], tokens[1] )
-
-    return result;
+    if(tokens[0].length<2) tokens[0] = '0'+tokens[0]
+    if(tokens[1].length<2) tokens[1] = '0'+tokens[1]
+    newDate.push(tokens[2])
+    newDate.push(tokens[0])
+    newDate.push(tokens[1])
+    return newDate.join('-')
 }
 
 module.exports = woolfe
