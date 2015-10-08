@@ -22,6 +22,6 @@
     "levelup": "^1.2.1",
     "moment": "^2.10.3",
     "queue-async": "^1.0.7",
-    "request": "^2.58.0"
+    "request": "^2.58.0",
   }
 }

@@ -1,6 +1,7 @@
 var moment = require("moment")
+var show = require('./show.js')
 var gaillard = [], hometeamsi = [], hometeamwa = [], musicfarm = [], musichall = [], pourhouse = [], royalamerican = []
-  , sparrow = [], theatre99 = [], tinroof = [], windjammer = [], tonight = [], thisWeek = []
+  , sparrow = [], theatre99 = [], tinroof = [], windjammer = [], tonight = [], thisWeek = [], woolfe =[]
 
 module.exports = function(shows, done) {
   sortShows(shows)
@@ -16,12 +17,13 @@ module.exports = function(shows, done) {
   thisWeek.push(generateHTML(theatre99, 'Theatre 99'))
   thisWeek.push(generateHTML(tinroof, 'Tin Roof'))
   thisWeek.push(generateHTML(windjammer, 'The Windjammer'))
+  thisWeek.push(generateHTML(woolfe, 'Woolfe Street'))
   thisWeek.push(["</body></html>"])
   done(tonightList, thisWeek)
 }
 
 function sortShows(shows) {
-  var today = moment().format('YYYY-MM-DD')
+  var today = show.referenceDate().format('YYYY-MM-DD')
   shows.forEach(function(show) {
     show = JSON.parse(show)
     var venue = show.venue
@@ -36,6 +38,7 @@ function sortShows(shows) {
     else if(venue === 'Theatre 99') {theatre99.push(show)}
     else if(venue === 'Tin Roof') {tinroof.push(show)}
     else if(venue === 'The Windjammer') {windjammer.push(show)}
+    else if(venue === 'Woolfe Street') {woolfe.push(show)}
     if(show.date === today) {tonight.push(show)}
   })
 }
@@ -93,3 +96,4 @@ function generateHTML(shows, venue) {
   html += "</ul>"
   return html
 }
+
