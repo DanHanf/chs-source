@@ -8,7 +8,7 @@ var makePage = require('./makePage.js')
 // Scrapers run / DB updated every 30 minutes
 //new cronJob('*/30 * * * *', function(){
 fs.readdir(__dirname+'/sources', function(err, dirs){
-    var q = queue(5)
+    var q = queue()
     dirs.forEach(function(dir){
       var fn = require(__dirname + '/sources/' + dir)
       q.defer(fn)
@@ -26,7 +26,9 @@ show.getShows(function(result) {
   generateHTML(result, function(tonight, thisWeek) {
     // returns html for tonight and array of html for each venue this week
     makePage(tonight, thisWeek.join(' '), function() {
-      childProcess.execSync('git add .; git commit -m "refresh"; git push origin gh-pages;')
+      //childProcess.execSync('git add .; git commit -m "refresh"; git push origin gh-pages;')
+console.log('done')
     })
   })
 })
+
