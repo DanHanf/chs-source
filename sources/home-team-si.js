@@ -17,7 +17,7 @@ function hometeamsi(done) {
         title: $(elem).find('h3').text().split(':')[1].trim(),
         date: year + '-' + month + '-' + day,
         price: $(elem).find('h4.price').text(),
-        details: $(elem).find('h5 span').text()
+        time: $(elem).find('h5 span').text()
       }
       shows.push(show)
     })
