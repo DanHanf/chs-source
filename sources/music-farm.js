@@ -8,18 +8,22 @@ function musicfarm (done) {
     var $ = cheerio.load(body)
     $('.list-view-item').each(function(i, elem) {
       var $$ = cheerio.load(elem)
-      var date = $$('.dates').text().trim()
-      date = normalizeDate(date)
-      var show = {
-        venue: 'Music Farm',
-        venueUrl: 'http://www.musicfarm.com/venues/music-farm-charleston/upcoming-shows/',
-        title: $$('.headliners').text().trim(),
-        url: 'http://www.musicfarm.com'+$$('.headliners').children().attr('href'),
-        date: date,
-        price: $$('.price-range').text().trim(),
-        age: $$('.age-restriction').text().trim()
+      console.log($$('.location').text())
+      if($$('.location').text() === "Music Farm Charleston") {
+        var date = $$('.dates').text().trim()
+        date = normalizeDate(date)
+        var show = {
+          venue: 'Music Farm',
+          venueUrl: 'http://www.musicfarm.com/venues/music-farm-charleston/upcoming-shows/',
+          title: $$('.headliners').text().trim(),
+          url: 'http://www.musicfarm.com'+$$('.headliners').children().attr('href'),
+          date: date,
+          price: $$('.price-range').text().trim(),
+          age: $$('.age-restriction').text().trim(),
+          time: $$('.start').text().slice(5).trim()
+        }
+        shows.push(show)
       }
-      shows.push(show)
     })
     done(null, shows)
   })
