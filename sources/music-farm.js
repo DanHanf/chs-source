@@ -8,7 +8,6 @@ function musicfarm (done) {
     var $ = cheerio.load(body)
     $('.list-view-item').each(function(i, elem) {
       var $$ = cheerio.load(elem)
-      console.log($$('.location').text())
       if($$('.location').text() === "Music Farm Charleston") {
         var date = $$('.dates').text().trim()
         date = normalizeDate(date)
