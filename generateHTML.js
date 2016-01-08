@@ -47,7 +47,16 @@ function tonightHTML(shows) {
   var today = moment().format("MMMM Do YYYY")
   // generate all the boilerplate stuff
   var html = "<!DOCTYPE html><html><head><title>chs-tonight</title><link rel='stylesheet' type='text/css' href='./public/css/style.css' />"
-  html += "<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'></head><body>"
+  html += "<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>"
+  // google analytics
+  html += "<script>"
+  html += "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){"
+  html += "(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"
+  html += "m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)"
+  html += "})(window,document,'script','//www.google-analytics.com/analytics.js','ga');"
+  html += "ga('create', 'UA-72197750-1', 'auto');"
+  html += "ga('send', 'pageview');"
+  html += "</script></head><body>"
   // now here's the meat
   html += "<div id='nav'><a href='./about.html'>about</a></div>"
   html += "<span id='date'><h2>"+today+"</h2></span>"
