@@ -44,11 +44,13 @@ function sortShows(shows) {
 }
 
 function tonightHTML(shows) {
+  var today = moment().format("MMMM Do YYYY")
   // generate all the boilerplate stuff
   var html = "<!DOCTYPE html><html><head><title>chs-tonight</title><link rel='stylesheet' type='text/css' href='./public/css/style.css' />"
   html += "<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'></head><body>"
   // now here's the meat
   html += "<div id='nav'><a href='./about.html'>about</a></div>"
+  html += "<span id='date'><h2>"+today+"</h2></span>"
   html += "<h1><span class='red'>T</span><span class='orange'>O</span><span class='yellow'>N</span>"
   html += "<span class='green'>I</span><span class='blue'>G</span><span class='indigo'>H</span><span class='violet'>T</span></h1>"
   html += "<ul>"
