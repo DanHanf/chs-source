@@ -1,7 +1,13 @@
-var levelup = require('levelup')
-var queue = require('queue-async')
-var moment = require('moment')
-var db = levelup('./db')
+
+import js2py
+from js2py import require
+
+original_code = """
+
+let levelup = require('levelup')
+let queue = require('queue-async')
+let moment = require('moment')
+let db = levelup('./db')
 
 exports.getShows = function(done) {
   getShows(function(result) {
@@ -19,7 +25,7 @@ exports.addShows = function(shows) {
 // command line argument should be of format YYYY-MM-DD
 exports.referenceDate = function()
 {
-  var result = moment()
+  let result = moment()
 
   if( process.argv.length === 3 )
   { result = moment( process.argv[2] ) }
@@ -28,11 +34,11 @@ exports.referenceDate = function()
 }
 
 function getShows(done) {
-  var showsThisWeek = []
-  var date = exports.referenceDate();
+  let showsThisWeek = []
+  let date = exports.referenceDate();
 
-  var today = date.toISOString().slice(0,10)
-  var nextWeek = date.add(7, 'days').toISOString().slice(0,10)
+  let today = date.toISOString().slice(0,10)
+  let nextWeek = date.add(7, 'days').toISOString().slice(0,10)
   db.createReadStream({gte: today, lt: nextWeek})
   .on('data', function(data) {
     showsThisWeek.push(data.value)
@@ -46,7 +52,7 @@ function getShows(done) {
 }
 
 function addShows(shows, done) {
-  var q = queue(1)
+  let q = queue(1)
   shows.forEach(function (show) {
     q.defer(function (cb) {
       db.put(show.date + '!' + show.venue + '!' + show.title, JSON.stringify(show), function (err) {
@@ -58,4 +64,7 @@ function addShows(shows, done) {
     console.log('putting')
   })
 }
+"""
+result = js2py.eval_js(original_code)
 
+print(result)
