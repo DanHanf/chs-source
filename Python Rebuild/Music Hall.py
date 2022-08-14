@@ -24,16 +24,6 @@ for list in result:
     result_strings.append(str(list))
 
 
-#### TRY BREAKING result OBJECT DOWN FURTHER, THEN TO NEAT DICT
-
-# print(result_strings)
-
-names = []
-for line in result_strings:
-    if line.index('name') == True:
-        names.append(line)
-print(names)
-
 ### attempt as a list iterator function
 
 # def sep(list, chunk_size):
@@ -101,6 +91,3 @@ print(names)
 
 # music_hall_sect_text = music_hall_sect.text
 # print(music_hall_sect_text)
-
-
-
