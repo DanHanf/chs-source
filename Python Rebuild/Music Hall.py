@@ -22,21 +22,7 @@ result = music_hall_string_quotes.split(",")
 result_strings = []
 for list in result:
     result_strings.append(str(list))
-result_string_line = '\n'.join(result_strings)
-#### TRY BREAKING result OBJECT DOWN FURTHER, THEN TO NEAT DICT
-print(result_string_line)
-### how to break down into key:value pairs
 
-
-
-
-# print(result_strings)
-
-# names = []
-# for line in result_strings:
-#     if line.index('name') == True:
-#         names.append(line)
-# print(names)
 
 ### attempt as a list iterator function
 
@@ -105,4 +91,3 @@ print(result_string_line)
 
 # music_hall_sect_text = music_hall_sect.text
 # print(music_hall_sect_text)
-
