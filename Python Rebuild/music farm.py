@@ -23,7 +23,7 @@ doc = BeautifulSoup(result.text, "lxml")
 events_block = doc.find_all(class_="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin")
 #### parsing by dates
 dates_block = doc.find_all(class_="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium")
-	
+
 ### parsing by detail
 details_block = doc.find_all("h3")
 
