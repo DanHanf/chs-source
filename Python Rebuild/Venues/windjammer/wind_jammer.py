@@ -1,29 +1,26 @@
-### CHS music source Theater 99
-
-### Imports
+# Imports
 import requests
 from bs4 import BeautifulSoup
-import numpy as np
-import regex as re
+from pathlib import Path
 import json
 
-#### FUNCTIONS
+# FUNCTIONS
 
-    ###  currently empty
+#  currently empty
 
 
-#### request html, beautiful soup results
+# request html, beautiful soup results
 
 url = "https://the-windjammer.com/events/"
 result = requests.get(url)
 doc = BeautifulSoup(result.text, "lxml")
 
 
-##### parsing by class type!!!!!!!!
+# parsing by class type!
 
-### parsing by event name
+# parsing by event name
 events_block = doc.find_all(class_="event-arc-title")
-#### parsing by dates
+# parsing by dates
 
 
 find_day_item = doc.find_all(class_="event-arc-day")
@@ -46,13 +43,12 @@ date_time = list(dates_block_item)
 # print(date_time)
 
 
-## parsing by detail
+# parsing by detail
 # details_block = doc.find_all(class_="event_arc_info")
 # print(details_block)
 
 
-
-# ### date list
+# date list
 # date_time = []
 # for date in dates_block:
 #     item = date.get_text(strip=True)
@@ -60,7 +56,7 @@ date_time = list(dates_block_item)
 # # print(date_time)
 
 
-### name list
+# name list
 name_list = []
 for title in events_block:
     item = title.get_text(strip=True)
@@ -68,7 +64,7 @@ for title in events_block:
 
 # print(name_list)
 
-#### turn into title style
+# turn into title style
 # name_list = []
 # for cap in name_list_caps:
 #     cap_title = str(cap.title())
@@ -77,7 +73,7 @@ for title in events_block:
 # print(name_list)
 
 
-### more details
+# more details
 
 # detail_list = []
 # for sect in details_block:
@@ -85,16 +81,17 @@ for title in events_block:
 #     detail_list.append(item)
 
 
-# ### zip lists
+# zip lists
 names_dates_list = zip(name_list, date_time)
 names_dates_list = list(names_dates_list)
-
 
 
 # names_dates_info = zip(names_dates_list, detail_list)
 
 
+# print lists
+# print(*names_dates_list, sep="\n")
 
-# #### print lists!!!!
-print(*names_dates_list, sep = "\n")
-
+# write data to a JSON file
+with Path("../../JSON/wind_jammer.json").open("w") as outfile:
+    json.dump(names_dates_list, outfile)
