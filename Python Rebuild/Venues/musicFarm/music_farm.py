@@ -1,8 +1,9 @@
 # Imports
 import requests
 from bs4 import BeautifulSoup
-import numpy as np
-import regex as re
+# import numpy as np
+# import regex as re
+from pathlib import Path
 import json
 
 # FUNCTIONS
@@ -17,7 +18,7 @@ result = requests.get(url)
 doc = BeautifulSoup(result.text, "lxml")
 
 
-# parsing by class type!!!!!!!!
+# parsing by class type
 events_block = doc.find_all(class_="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin")
 # parsing by dates
 dates_block = doc.find_all(class_="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium")
@@ -39,16 +40,16 @@ name_list = []
 for title in events_block:
     item = title.get_text(strip=True)
     name_list.append(item)
-# # print(name_list)
-# # print(len(name_list))
+# print(name_list)
+# print(len(name_list))
 
-# ### zip lists
+# zip lists
 names_dates_list = zip(name_list, date_time)
 names_dates_list = list(names_dates_list)
 
-# #### print lists!!!!
-print(*names_dates_list, sep = "\n")
+# print lists
+# print(*names_dates_list, sep="\n")
 
 # write data to a JSON file
-with open("data.json", "w") as outfile:
+with Path("../../JSON/music_farm.json").open("w") as outfile:
     json.dump(names_dates_list, outfile)
