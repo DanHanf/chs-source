@@ -1,0 +1,28 @@
+
+
+header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header.h1 {
+    display: flex;
+    align-self: center;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
