@@ -1,17 +1,17 @@
 // musicFarm.jsx
 import './musicFarm.css'
 import data from "../../../../../JSON/music_farm.json";
+import { replaceSkippedDates } from '../replaceSkippedNumbers';
 
 const MusicFarm = () => {
-    const mappedData = [];
-
-        data.forEach((item) => {
-            const mappedItem = {
-                name: item[0],
-                date: item[1],
-            };
-            mappedData.push(mappedItem);
-        });
+    const filterData = replaceSkippedDates(data, 0);
+    const mappedData = filterData.map((item) => {
+        return {
+            name: item.name,
+            date: item.date,
+        };
+    });
+    console.log(mappedData)
 
     return (
         <table>
@@ -21,10 +21,10 @@ const MusicFarm = () => {
                 </tr>
             </thead>
             <tbody>
-                {Object.keys(mappedData).map((key) => (
-                    <tr key={key}>
-                        <td>{mappedData[key].name}</td>
-                        <td>{mappedData[key].date}</td>
+                {mappedData.map((item, index) => (
+                    <tr key={index}>
+                        <td>{item.name}</td>
+                        <td>{item.date}</td>
                     </tr>
                 ))}
             </tbody>

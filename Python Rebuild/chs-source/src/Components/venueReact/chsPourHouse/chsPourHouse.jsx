@@ -1,15 +1,17 @@
 // chsPourHouse.jsx
 import "./chsPourHouse.css";
 import data from "../../../../../JSON/chs_pour_house.json";
-//import PropTypes from "prop-types";
+import { replaceSkippedDates } from "../replaceSkippedNumbers";
 
 const ChsPourHouse = () => {
-    const mappedData = data.map((item) => {
+    const filterData = replaceSkippedDates(data, 0);
+    const mappedData = filterData.map((item) => {
         return {
-            name: item[0],
-            date: item[1],
+            name: item.name,
+            date: item.date,
         };
     });
+    console.log(mappedData)
 
     return (
         <table>
